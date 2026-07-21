@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 샤워실 사용 학년</title>
+
+    <link rel="stylesheet" href="info.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!--https://fonts.google.com/selection/embed-->
+
+</head>
+<body>
+     <nav>
+        <h4>현재 사용학년은...</h4>
+        <a href="./4floor.html">4층</a>
+    </nav>
+
+    <div class="frame">
+
+
+        <div class="floor">
+            <h1>3층</h1>
+            <img src="ganadi.png" width="10%">
+        </div>
+
+        <div class="grade">
+            <div id="grade"></div>
+            <div id="time"></div>
+            <script>
+                const hour = new Date().getHours(); //new Date는 객체를 뱉지만 그냥 Date는 문자열을 뱉기에 get...이 안써짐
+                const minute = new Date().getMinutes();
+                let grade = null;
+                let time = null;
+
+                if (hour >= 18 && hour < 22) {
+                    grade = '1학년';
+                    time = '~10:00'
+                    document.querySelector('#grade').style.color = 'rgb(50, 98, 255)' //rgb(255, 50, 50)는 빨강
+                    }
+                else if (hour < 18 && hour >= 3) {
+                    grade=''
+                    time=''
+                }
+                else {
+                        grade = '3학년';
+                        time='10:00~'
+                        document.querySelector('#grade').style.color = 'rgb(50, 255, 70)'
+                }
+
+                document.getElementById('grade').innerHTML=grade
+                document.getElementById('time').innerHTML=time
+            </script>
+        </div><br>
+
+        <div class="all">
+            <a href="all.html"><button>전체 시간표 보기</button></a>
+        </div>
+
+        
+    </div>
+</body>
+</html>
